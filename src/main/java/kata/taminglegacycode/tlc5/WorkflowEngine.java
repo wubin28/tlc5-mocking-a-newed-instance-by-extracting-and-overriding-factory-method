@@ -3,7 +3,7 @@ package kata.taminglegacycode.tlc5;
 import java.io.Reader;
 
 public class WorkflowEngine {
-    private final TransactionManager tm;
+    private TransactionManager tm;
 
     public WorkflowEngine() {
 
