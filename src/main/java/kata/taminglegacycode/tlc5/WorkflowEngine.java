@@ -5,10 +5,14 @@ public class WorkflowEngine {
 
     public WorkflowEngine() {
 
+        this.tm = buildTransactionManager();
+    }
+
+    protected TransactionManager buildTransactionManager() {
         ModelReader reader = new ModelReader(AppConfig.getDryConfiguration());
         XMLStore persister = new XMLStore(AppConfiguration.getDryConfiguration());
 
-        this.tm = new TransactionManager(reader, persister);
+        return new TransactionManager(reader, persister);
     }
 
     public void approve(String taskId, int employeeId, String nodeID) {
