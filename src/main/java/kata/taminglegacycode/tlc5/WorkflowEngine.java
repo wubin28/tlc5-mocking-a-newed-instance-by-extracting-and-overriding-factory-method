@@ -1,16 +1,17 @@
 package kata.taminglegacycode.tlc5;
 
 public class WorkflowEngine {
+    private static final DryConfiguration dryConfiguration = AppConfig.getDryConfiguration();
+
     private TransactionManager tm;
 
     public WorkflowEngine() {
-
         this.tm = buildTransactionManager();
     }
 
     protected TransactionManager buildTransactionManager() {
-        ModelReader reader = new ModelReader(AppConfig.getDryConfiguration());
-        XMLStore persister = new XMLStore(AppConfiguration.getDryConfiguration());
+        ModelReader reader = new ModelReader(dryConfiguration);
+        XMLStore persister = new XMLStore(dryConfiguration);
 
         return new TransactionManager(reader, persister);
     }
