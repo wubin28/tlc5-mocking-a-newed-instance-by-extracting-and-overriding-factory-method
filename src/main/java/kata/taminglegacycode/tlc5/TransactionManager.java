@@ -7,6 +7,6 @@ public class TransactionManager {
     }
 
     public void approve(String taskId, int employeeId, String nodeID) {
-
+        throw new UnsupportedOperationException("TransactionManager.approve() not supported yet.");
     }
 }
